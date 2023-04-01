@@ -2,3 +2,29 @@ mi., 15 de feb. de 2023 12:35:23:
  tests:  0|6
 total_score: 0/70
 7964391
+Sat 01 Apr 2023 09:03:10 PM UTC: 
+ arraylist.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+arraylist.c: In function ‘createList’:
+arraylist.c:15:7: error: expected expression before ‘ArrayList’
+   15 |   if (ArrayList == NULL) return;
+      |       ^~~~~~~~~
+arraylist.c:15:26: error: ‘return’ with no value, in function returning non-void [-Werror=return-type]
+   15 |   if (ArrayList == NULL) return;
+      |                          ^~~~~~
+arraylist.c:13:12: note: declared here
+   13 | ArrayList *createList(void) {
+      |            ^~~~~~~~~~
+arraylist.c: In function ‘append’:
+arraylist.c:24:13: error: ‘size’ undeclared (first use in this function); did you mean ‘dysize’?
+   24 |     l->data[size] = data;
+      |             ^~~~
+      |             dysize
+arraylist.c:24:13: note: each undeclared identifier is reported only once for each function it appears in
+arraylist.c:27:34: error: ‘capacity’ undeclared (first use in this function)
+   27 |       l->data = realloc(l->data, capacity*2);
+      |                                  ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+d1944ab

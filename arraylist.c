@@ -11,11 +11,22 @@ typedef struct ArrayList {
 } ArrayList;
 
 ArrayList *createList(void) {
-    return NULL;
+  ArrayList *list = (ArrayList *) malloc (sizeof(ArrayList));
+  if (ArrayList == NULL) return;
+  list->capacity = 2;
+  list->size = 0;
+  list->data = malloc(sizeof(void*));
+  return list;
 }
 
 void append(ArrayList * l, void * data){
-
+  for (int k = 0 ; k < l->capacity ; k++){
+    l->data[size] = data;
+    l->size++;
+    if (l->size == l->capacity){
+      l->data = realloc(l->data, capacity*2);
+    }
+  }
 }
 
 void push(ArrayList * l, void * data, int i){
