@@ -48,11 +48,12 @@ void* pop(ArrayList * l, int i){
   if(i < 0){
     i += l->size;
   }
+  
   void* dato = l->data[i];
   for(int k = i+1 ; k < l->size ; k++){
-    
-    l->data[k] = l->data[k-1];
+    l->data[k-1] = l->data[k];
   }
+  
   l->size--;
   return dato;
 }
