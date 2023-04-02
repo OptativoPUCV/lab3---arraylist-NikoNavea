@@ -20,14 +20,12 @@ ArrayList *createList(void) {
 }
 
 void append(ArrayList * l, void * data){
-  for (int k = 0 ; k < l->capacity ; k++){
-    if (l->size == l->capacity){
-      l->data = realloc(l->data, l->capacity*2*sizeof(void**));
-      l->capacity = l->capacity*2;
-    }
-    l->data[l->size] = data;
-    l->size++;
+  if (l->size == l->capacity){
+    l->data = realloc(l->data, l->capacity*2*sizeof(void**));
+    l->capacity = l->capacity*2;
   }
+  l->data[l->size] = data;
+  l->size++;
 }
 
 void push(ArrayList * l, void * data, int i){
