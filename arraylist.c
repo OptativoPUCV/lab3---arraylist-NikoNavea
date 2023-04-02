@@ -22,7 +22,7 @@ ArrayList *createList(void) {
 void append(ArrayList * l, void * data){
   for (int k = 0 ; k < l->capacity ; k++){
     if (l->size == l->capacity){
-      l->data = realloc(l->data, l->capacity*2*sizeof(void*));
+      l->data = realloc(l->data, l->capacity*2*sizeof(void**));
       l->capacity = l->capacity*2;
     }
     l->data[l->size] = data;
@@ -34,7 +34,7 @@ void push(ArrayList * l, void * data, int i){
   if(i > l->size) return;
   
   if(l->size == l->capacity){
-    l->data = realloc(l->data, l->capacity*2*sizeof(void*));
+    l->data = realloc(l->data, l->capacity*2*sizeof(void**));
     l->capacity = l->capacity*2;
   }
   
@@ -88,7 +88,7 @@ void clean(ArrayList * l){
   
   l->capacity = 2;
   l->size = 0;
-  l->data = realloc(l->data, l->capacity*sizeof(void*));
+  l->data = realloc(l->data, l->capacity*sizeof(void**));
   
   if(l->data != NULL){
     l->data[0] = NULL;
